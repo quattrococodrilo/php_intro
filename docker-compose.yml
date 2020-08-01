@@ -5,7 +5,8 @@ services:
             context: .
             dockerfile: compose/Dockerfile
         ports:
-            - "80:80"      
+            - "80:80"
         volumes:
-            - ./app/htdocs:/opt/lampp/htdocs
-        command: "/opt/lampp/lampp start"
+            - ./app:/app
+            - ./htdocs:/opt/lampp/htdocs
+        command: "/store/entrypoint.sh"
